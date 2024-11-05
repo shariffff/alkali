@@ -1,0 +1,18 @@
+{
+    "name": "sharif/alkali",
+    "description": "'",
+    "autoload": {
+        "psr-4": {
+            "Alkali\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sharif Mohammad Eunus",
+            "email": "sharif.eunus@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/collections": "^11.30"
+    }
+}
