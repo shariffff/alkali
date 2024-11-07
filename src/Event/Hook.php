@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace Alkali\Event;
 
-use Alkali\Support\Callback;
-
 class Hook
 {
 
     /**
      * The callback object holding the target callable
-     * @var Callback
+     * @var $callback
      */
     protected $callback;
 
@@ -41,19 +39,19 @@ class Hook
 
     public function setCallback(callable $callback): self
     {
-        $this->callback = new Callback($callback);
+        $this->callback = $callback;
         return $this;
     }
 
     public function listen()
     {
-        add_filter($this->handle, $this->callback->call(), $this->priority, 100);
+        add_filter($this->handle, $this->callback, $this->priority, 100);
         return $this;
     }
 
     public function remove()
     {
-        remove_filter($this->handle, $this->callback->call(), $this->priority);
+        remove_filter($this->handle, $this->callback, $this->priority);
         return $this;
     }
 }
